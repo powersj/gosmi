@@ -28,10 +28,7 @@ func GetEnumBitsFormatted(value interface{}, flags Format, enum *Enum) (v Value)
 	if flags == FormatNone {
 		return
 	}
-	octets, ok := value.([]byte)
-	if !ok {
-		return
-	}
+	octets := v.Bytes()
 	if flags&FormatBits != 0 {
 		v.Formatted = fmt.Sprintf("% X", octets)
 	}
